@@ -67,7 +67,7 @@ $(".search-box").submit(function(){
     },
     dataType: "json",
     success: function (result) {
-      if(result.lenght) {
+      if(result.length) {
         for(i in result) {
           var music = result[i];
           var container = $("<div>").addClass("col-lg-4 col-xs-4 col-sm-4 col-md-4 well");
