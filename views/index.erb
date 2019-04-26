@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>iTunes検索</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -33,15 +33,18 @@
    %>
 
   <form action="/" class="form-inline search-box">
-    <div class="form-group"><input type="text" name="keyword" class="form-control"></div>
+    <div class="form-group"><input type="text"  class="form-control" name="keyword"></div>
     <div class="form-group"><input type="submit"  class="form-control"></div>
-  </form>
+  </form> 
   <div class="row result">
   </div>
+  <%# <br>
+  <button class="like_botton" data-id="<%= music["id"] % >">いいね</button>
+  <span class="like_label" data-id="<%= music["id"] % >"><%= music["like"] % >いいね</span> %>
 </div>
 
   <script>
-    $(document).on("click",".like_button", function() {
+    $(document).on("click", ".like_button", function() {
       var id = $(this).data("id");
 
       $.ajax({
