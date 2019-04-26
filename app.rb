@@ -8,8 +8,10 @@ require 'json'
 require './models'
 
 get '/' do 
+
+    
     keyword = params[:keyword]
-    uri = URI.params("https://itunes.apple.com/search")
+    uri = URI.parse("https://itunes.apple.com/search")
     uri.query = URI.encode_www_form({ term: keyword, country: "US", media: "music", limit: 10})
     res = Net::HTTP.get_response(uri)
     returned_json = JSON.parse(res.body)
@@ -23,12 +25,14 @@ get '/' do
 
     @music = returned_json["results"]
 
+   
+
     erb :index
 end
 
 get '/search' do 
     keyword = params[:keyword]
-    uri = URI.params("https://itunes.apple.com/search")
+    uri = URI.parse("https://itunes.apple.com/search")
     uri.query = URI.encode_www_form({ term: keyword, country: "US", media: "music", limit: 10})
     res = Net::HTTP.get_response(uri)
     returned_json = JSON.parse(res.body)
